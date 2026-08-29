@@ -1,0 +1,526 @@
+/* ==========================================================================
+   Groen Kwartier Sessies — stijl.css
+   Eén stijlbestand voor de hele site. Kleuren en sfeer volgen de poster.
+   Mobiel eerst.
+   ========================================================================== */
+
+:root {
+  --groen-donker: #41462F;
+  --groen-mid:    #5A6142;
+  --creme:        #F2EEE5;
+  --zand:         #EAE0D6;
+  --beige:        #E2D2C3;
+  --tekst:        #2E3123;
+  --tekst-zacht:  #6E7059;
+  --wit:          #FBF9F4;
+
+  --serif:  "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --script: "Petit Formal Script", "Dancing Script", cursive;
+  --sans:   "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  --radius:    14px;
+  --radius-s:  10px;
+  --maxbreed:  62rem;
+  --schaduw:   0 1px 2px rgba(65, 70, 47, .06), 0 8px 24px rgba(65, 70, 47, .07);
+}
+
+/* --- Basis ---------------------------------------------------------------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--creme);
+  color: var(--tekst);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--groen-donker); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--groen-mid); }
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  color: var(--groen-donker);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 .5em;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(2.1rem, 8vw, 3.4rem); }
+h2 { font-size: clamp(1.5rem, 5vw, 2rem); }
+h3 { font-size: 1.2rem; }
+
+p { margin: 0 0 1em; }
+
+.wrap {
+  width: 100%;
+  max-width: var(--maxbreed);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+.visueel-verborgen {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* Klein label in kapitalen met ruime spatiëring — zoals op de poster */
+.label {
+  font-family: var(--sans);
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--tekst-zacht);
+  margin: 0;
+}
+
+.script {
+  font-family: var(--script);
+  font-weight: 400;
+  color: var(--groen-mid);
+}
+
+/* --- Sitekop ------------------------------------------------------------- */
+
+.sitekop {
+  text-align: center;
+  padding: 2.75rem 0 1.5rem;
+}
+
+.sitekop .label { margin-bottom: .85rem; }
+
+.sitekop h1 { margin-bottom: .25rem; }
+
+.sitekop .ondertitel {
+  font-family: var(--serif);
+  font-size: clamp(1.05rem, 3.6vw, 1.35rem);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--groen-mid);
+  margin: 0;
+}
+/* Volgt er nog een slogan onder de ondertitel, dan hoort daar ruimte tussen. */
+.sitekop .ondertitel + .slogan { margin-top: .9rem; }
+
+.sitekop .slogan {
+  font-family: var(--script);
+  font-size: clamp(1.25rem, 4.6vw, 1.7rem);
+  color: var(--groen-mid);
+  margin: 0;
+}
+
+.sierlijn {
+  border: 0;
+  height: 1px;
+  max-width: 12rem;
+  margin: 1.75rem auto;
+  background-image: linear-gradient(to right, transparent, var(--beige) 20%, var(--beige) 80%, transparent);
+}
+
+/* --- Blokken ------------------------------------------------------------- */
+
+section { padding-block: 1.5rem; }
+
+.intro {
+  max-width: 40rem;
+  margin-inline: auto;
+  text-align: center;
+  font-size: 1.09rem;
+}
+
+.kop-met-lijn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.kop-met-lijn h2 { margin: 0; white-space: nowrap; }
+.kop-met-lijn::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--beige);
+}
+
+/* Donkergroene balk, zoals de "open bar"-balk op de poster */
+.balk {
+  background: var(--groen-donker);
+  color: var(--creme);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.5rem;
+  text-align: center;
+}
+.balk .label { color: rgba(242, 238, 229, .72); }
+.balk .groot {
+  font-family: var(--script);
+  font-size: clamp(1.5rem, 6vw, 2.1rem);
+  margin: .35rem 0 0;
+  line-height: 1.2;
+}
+.balk .balk-iconen {
+  display: flex;
+  justify-content: center;
+  gap: 1.1rem;
+  margin-top: .9rem;
+  color: rgba(242, 238, 229, .8);
+}
+.balk .balk-iconen svg { width: 22px; height: 22px; }
+
+/* --- Sessiekaarten ------------------------------------------------------- */
+
+.sessies { display: grid; gap: 1.25rem; }
+
+.sessie {
+  background: var(--zand);
+  border-radius: var(--radius);
+  box-shadow: var(--schaduw);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.sessie-foto {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--beige);
+}
+.sessie-foto img { width: 100%; height: 100%; object-fit: cover; }
+
+.sessie-inhoud { padding: 1.5rem; }
+
+.sessie h3 {
+  font-size: clamp(1.6rem, 6vw, 2.1rem);
+  margin-bottom: .1rem;
+}
+.sessie .sessie-tussentitel {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--tekst-zacht);
+  margin: 0 0 1rem;
+}
+
+.badge {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  padding: .3rem .65rem;
+  border-radius: 999px;
+  background: var(--groen-donker);
+  color: var(--creme);
+  vertical-align: middle;
+}
+.badge--volzet { background: #8A5A46; }
+
+/* --- Detailrij met lijn-iconen ------------------------------------------- */
+
+.details {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: grid;
+  gap: .9rem;
+}
+
+.details li {
+  display: flex;
+  align-items: flex-start;
+  gap: .75rem;
+}
+
+.details svg {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  margin-top: .1rem;
+  color: var(--groen-mid);
+}
+
+.details .dt {
+  display: block;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--tekst-zacht);
+}
+.details .dd {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--groen-donker);
+  line-height: 1.3;
+}
+
+/* Variant op de eventpagina: kaartjes naast elkaar, gescheiden door lijntjes */
+.details--rij {
+  gap: 0;
+  background: var(--zand);
+  border-radius: var(--radius);
+  padding: .5rem;
+}
+.details--rij li {
+  padding: .95rem 1rem;
+  border-bottom: 1px solid var(--beige);
+}
+.details--rij li:last-child { border-bottom: 0; }
+
+/* --- Knoppen ------------------------------------------------------------- */
+
+.knop {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: var(--groen-donker);
+  color: var(--creme);
+  font-family: var(--sans);
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: .95rem 1.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--groen-donker);
+  transition: background .15s ease, color .15s ease;
+}
+.knop:hover, .knop:focus-visible { background: var(--groen-mid); color: var(--creme); }
+
+.knop--uit {
+  background: transparent;
+  color: var(--tekst-zacht);
+  border-color: var(--beige);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.knop--terug {
+  background: none;
+  border: 0;
+  color: var(--tekst-zacht);
+  padding: 0;
+  letter-spacing: .12em;
+}
+.knop--terug:hover { color: var(--groen-donker); background: none; }
+
+:focus-visible { outline: 2px solid var(--groen-mid); outline-offset: 3px; }
+
+/* --- Praktisch-blokken --------------------------------------------------- */
+
+.praktisch { display: grid; gap: 1rem; }
+
+.praktisch article {
+  background: var(--wit);
+  border: 1px solid var(--beige);
+  border-radius: var(--radius-s);
+  padding: 1.25rem;
+}
+.praktisch h3 { font-size: 1.05rem; margin-bottom: .35rem; }
+.praktisch p { margin: 0; font-size: .97rem; }
+
+.lege-agenda {
+  background: var(--zand);
+  border-radius: var(--radius);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  color: var(--groen-donker);
+}
+
+/* --- Eventpagina --------------------------------------------------------- */
+
+.event-kop { padding-top: 1.5rem; }
+
+.event-kop .datumregel {
+  font-family: var(--serif);
+  font-size: clamp(1.05rem, 4vw, 1.3rem);
+  color: var(--groen-mid);
+  margin: 0;
+}
+
+.artiestfoto {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--schaduw);
+  margin-bottom: .6rem;
+}
+figure { margin: 0 0 2rem; }
+figcaption {
+  font-size: .8rem;
+  color: var(--tekst-zacht);
+  text-align: right;
+}
+
+/* Sfeerbeeld op de homepage. De bronfoto is 800px breed, dus niet groter
+   tonen dan dat — anders wordt ze zichtbaar zacht. */
+.sfeerbeeld {
+  max-width: 50rem;
+  margin: 1.5rem auto 0;
+}
+.sfeerbeeld img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--schaduw);
+}
+.sfeerbeeld figcaption {
+  max-width: none;
+  text-align: center;
+  margin-top: .7rem;
+  font-family: var(--sans);
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--tekst-zacht);
+}
+
+.bio { max-width: 40rem; }
+.bio .citaat {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--groen-donker);
+  border-left: 2px solid var(--beige);
+  padding-left: 1.1rem;
+  margin: 1.5rem 0;
+}
+
+/* Inschrijfblok */
+.inschrijven {
+  background: var(--zand);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.25rem;
+}
+.inschrijven .aanwijzing {
+  font-size: .97rem;
+  color: var(--tekst-zacht);
+  margin-bottom: 1rem;
+}
+.inschrijven iframe {
+  width: 100%;
+  min-height: 760px;
+  border: 0;
+  border-radius: var(--radius-s);
+  background: var(--creme);
+  display: block;
+}
+.privacyregel {
+  font-size: .85rem;
+  color: var(--tekst-zacht);
+  margin: 1rem 0 0;
+}
+
+.volzet-blok {
+  background: var(--zand);
+  border-radius: var(--radius);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
+.volzet-blok h3 { font-size: 1.5rem; }
+.volzet-blok p:last-child { margin-bottom: 0; }
+
+/* Plek die nog ingevuld moet worden — valt op tijdens het bouwen,
+   maar blijft leesbaar mocht ze per ongeluk live gaan. */
+.invullen {
+  background: #F6E7C9;
+  border-bottom: 2px dotted #B08947;
+  padding: 0 .25em;
+  border-radius: 3px;
+}
+
+/* --- Voettekst ----------------------------------------------------------- */
+
+.voet {
+  background: var(--groen-donker);
+  color: rgba(242, 238, 229, .85);
+  margin-top: 3.5rem;
+  padding: 2.5rem 0;
+  text-align: center;
+  font-size: .92rem;
+}
+.voet a { color: var(--creme); }
+.voet .voet-titel {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  color: var(--creme);
+  margin-bottom: .2rem;
+}
+.voet .voet-slogan {
+  font-family: var(--script);
+  color: rgba(242, 238, 229, .7);
+  margin-bottom: 1.25rem;
+}
+/* Staat er geen slogan onder de titel (homepage), dan neemt het volgende
+   blokje die ruimte over. */
+.voet .voet-titel + p:not(.voet-slogan) { margin-top: 1.05rem; }
+.voet p:last-child { margin-bottom: 0; }
+
+/* --- Tekstpagina (privacy) ---------------------------------------------- */
+
+.tekstpagina { max-width: 42rem; margin-inline: auto; padding-top: 1.5rem; }
+.tekstpagina h2 { font-size: 1.3rem; margin-top: 2rem; }
+.tekstpagina ul { padding-left: 1.2rem; }
+.tekstpagina li { margin-bottom: .4rem; }
+
+/* --- Vanaf tablet ------------------------------------------------------- */
+
+@media (min-width: 40rem) {
+  section { padding-block: 2.25rem; }
+
+  .sessie { grid-template-columns: 15rem 1fr; align-items: stretch; }
+  .sessie-foto { aspect-ratio: auto; height: 100%; min-height: 15rem; }
+  .sessie-inhoud { padding: 2rem; }
+
+  .details { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.1rem 1.5rem; }
+
+  .details--rij {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    padding: .75rem .5rem;
+  }
+  .details--rij li {
+    border-bottom: 0;
+    border-right: 1px solid var(--beige);
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: .5rem;
+  }
+  .details--rij li:last-child { border-right: 0; }
+
+  .praktisch { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  .inschrijven { padding: 2rem; }
+
+  /* De artiestfoto is vierkant; op een breed scherm zou ze anders de hele
+     eerste schermvulling opeisen. */
+  figure { margin-bottom: 2.5rem; }
+  .artiestfoto { max-width: 34rem; margin-inline: auto; }
+  figcaption { max-width: 34rem; margin-inline: auto; }
+}
+
+@media (min-width: 56rem) {
+  .sitekop { padding-top: 4rem; }
+}
+
+/* --- Afdrukken ---------------------------------------------------------- */
+
+@media print {
+  body { background: #fff; }
+  .knop, .inschrijven iframe { display: none; }
+  .voet { background: none; color: #333; }
+}
