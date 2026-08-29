@@ -398,6 +398,16 @@ figcaption {
   padding-left: 1.1rem;
   margin: 1.5rem 0;
 }
+.bio .citaat .citaat-bron {
+  display: block;
+  margin-top: .7rem;
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: .82rem;
+  letter-spacing: .02em;
+  color: var(--tekst-zacht);
+}
+.bio .citaat cite { font-style: italic; }
 
 /* Inschrijfblok */
 .inschrijven {
