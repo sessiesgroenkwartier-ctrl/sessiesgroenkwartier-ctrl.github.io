@@ -409,6 +409,19 @@ figcaption {
 }
 .bio .citaat cite { font-style: italic; }
 
+/* Kleine bronvermelding onderaan een pagina */
+.colofon {
+  max-width: 40rem;
+  margin-inline: auto;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--beige);
+  font-size: .8rem;
+  line-height: 1.6;
+  color: var(--tekst-zacht);
+  text-align: center;
+}
+.colofon cite { font-style: italic; }
+
 /* Inschrijfblok */
 .inschrijven {
   background: var(--zand);
