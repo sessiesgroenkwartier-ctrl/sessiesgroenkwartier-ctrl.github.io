@@ -225,6 +225,47 @@ section { padding-block: 1.5rem; }
 }
 .badge--volzet { background: #8A5A46; }
 
+/* --- Voorbije sessies: kleine kaartjes onder de komende ---------------- */
+
+.voorbij { display: grid; gap: .75rem; }
+
+.voorbij-kaart {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--wit);
+  border: 1px solid var(--beige);
+  border-radius: var(--radius-s);
+  padding: .75rem;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color .15s ease;
+}
+.voorbij-kaart:hover { border-color: var(--groen-mid); color: inherit; }
+.voorbij-kaart img {
+  flex: none;
+  width: 4.5rem;
+  height: 4.5rem;
+  object-fit: cover;
+  border-radius: 8px;
+  filter: grayscale(.4);
+}
+.voorbij-kaart .label { display: block; font-size: .68rem; }
+.voorbij-naam {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--groen-donker);
+  line-height: 1.2;
+}
+.voorbij-sub {
+  display: block;
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--tekst-zacht);
+}
+
 /* --- Detailrij met lijn-iconen ------------------------------------------- */
 
 .details {
@@ -526,6 +567,8 @@ figcaption {
   .details--rij li:last-child { border-right: 0; }
 
   .praktisch { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  .voorbij { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
   .inschrijven { padding: 2rem; }
 
